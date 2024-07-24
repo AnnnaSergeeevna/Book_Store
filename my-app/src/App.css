@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.book-item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* FILTER BAR */
+
+.filter-bar .nav-item {
+  margin: 15px;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.tags-dropdown .dropdown-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.tags-dropdown .dropdown-menu {
+  min-width: 100%;
+}
+
+.tags-dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+}
+
+.tags-dropdown-menu .dropdown-item input {
+  margin-right: 10px;
+}
+
+.tags-dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.tags-dropdown-menu .dropdown-item:active {
+  background-color: #e9ecef;
+}
