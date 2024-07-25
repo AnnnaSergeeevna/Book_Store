@@ -22,27 +22,46 @@ const BookStoreContainer = () => {
         setSortedItems(filteredItems);
     }, [filterTags]);
 
+
     const handleSortChange = (field, order) => {
         const sorted = [...sortedItems].sort((a, b) => {
+            let comparison = 0;
+
             if (field === 'price') {
-                return order === 'asc' ? a.price - b.price : b.price - a.price;
-            } else if (field === 'author') {
-                return order === 'asc'
-                    ? a.author.localeCompare(b.author)
-                    : b.author.localeCompare(a.author);
-            } else if (field === 'date') {
-                return order === 'asc'
-                    ? new Date(a.date) - new Date(b.date)
-                    : new Date(b.date) - new Date(a.date);
+                if (a.price === b.price) {
+                    const authorA = a.author.split(' ').pop().toLowerCase();
+                    const authorB = b.author.split(' ').pop().toLowerCase();
+                    comparison = authorA.localeCompare(authorB);
+                } else {
+                    comparison = a.price - b.price;
+                }
             }
-            return 0;
+
+            if (field === 'date') {
+                if (new Date(a.date).getTime() === new Date(b.date).getTime()) {
+                    const authorA = a.author.split(' ').pop().toLowerCase();
+                    const authorB = b.author.split(' ').pop().toLowerCase();
+                    comparison = authorA.localeCompare(authorB);
+                } else {
+                    comparison = new Date(a.date).getTime() - new Date(b.date).getTime();
+                }
+            }
+
+            if (field === 'author') {
+                comparison = a.author.localeCompare(b.author);
+            }
+
+            return order === 'asc' ? comparison : -comparison;
         });
+
         setSortedItems(sorted);
     };
+
 
     const handleFilterChange = (tags) => {
         setFilterTags(tags);
     };
+    const allTags = Array.from(new Set(ItemStore.flatMap(item => item.tags)));
 
     return (
         <Container>

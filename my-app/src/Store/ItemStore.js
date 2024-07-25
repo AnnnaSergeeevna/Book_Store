@@ -32,7 +32,7 @@ const ItemStore = [
         title: "A DEATH IN CORNWALL",
         author: "Daniel Silva",
         date: "July 2024",
-        price: 15,
+        price: 20,
         tags: ["Thriller"]
     },
     {
@@ -44,10 +44,17 @@ const ItemStore = [
     },
     {
         title: "The Photography Of The XX Century",
-        author: " Paul Duncan",
+        author: "Paul Duncan",
         date: "december 2014",
         price: 45,
         tags: ["Art", "Photography"]
+    },
+    {
+        title: "Hokusai: Thirty-six Views of Mount Fuji / Sechsunddreissig Ansichten Des Berges Fuji. Trente-six Vues Du Mont Fuji",
+        author: "Andreas Marks",
+        date: "july 2021",
+        price: 125,
+        tags: ["Art", "Biography"]
     }
 ];
 

@@ -17,7 +17,7 @@ const ItemList = ({ items }) => {
                             <p className='price-block'>{item.price}$</p>
                             <div>
                                 {item.tags.map((tag, tagitem) => (
-                                    <button className='tag-button'>{tag}</button>
+                                    <button key={tag} className='tag-button'>{tag}</button>
                                 ))}
                             </div>
                         </div>

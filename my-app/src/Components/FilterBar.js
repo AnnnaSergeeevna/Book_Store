@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const FilterBar = ({ onSortChange, onFilterChange }) => {
+const FilterBar = ({ onSortChange, onFilterChange, tags }) => {
     const [sortOrder, setSortOrder] = useState('asc');
     const [sortField, setSortField] = useState('price');
     const [filterTags, setFilterTags] = useState([]);
@@ -22,7 +22,6 @@ const FilterBar = ({ onSortChange, onFilterChange }) => {
         onFilterChange(newFilterTags);
     };
 
-    const tags = ["Climate change", "Sci-Fi", "History", "Technology", "Health", "Biochemistry"];
 
     return (
         <div className="mt-3 filter-bar">
