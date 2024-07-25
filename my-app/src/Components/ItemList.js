@@ -6,16 +6,20 @@ const ItemList = ({ items }) => {
 
     return (
         <Container>
-            <Row>
+            <Row className='mt-3 books-row'>
                 {items.map((item, index) => (
-                    <Col key={index} md={12} className="mb-4">
+                    <Col key={index} md={12} >
                         <div className="book-item">
-                            <h2>{item.title}</h2>
-                            <p><strong>Author:</strong> {item.author}</p>
-                            {item.illustrator && <p><strong>Illustrator:</strong> {item.illustrator}</p>}
-                            <p><strong>Date:</strong> {item.date}</p>
-                            <p><strong>Price:</strong> ${item.price}</p>
-                            <p><strong>Tags:</strong> {item.tags.join(', ')}</p>
+                            <h2>{item.title.length > 30 ? item.title.substring(0, 30) + '...' : item.title}</h2>
+                            <strong>By</strong> {item.author}
+                            {item.illustrator && <div><strong>Illustrator:</strong> {item.illustrator}</div>}
+                            <div>{item.date}</div>
+                            <p className='price-block'>{item.price}$</p>
+                            <div>
+                                {item.tags.map((tag, tagitem) => (
+                                    <button className='tag-button'>{tag}</button>
+                                ))}
+                            </div>
                         </div>
                     </Col>
                 ))}

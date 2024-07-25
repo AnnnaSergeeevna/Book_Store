@@ -47,8 +47,8 @@ const BookStoreContainer = () => {
     return (
         <Container>
             <Row>
-                <Col md={9}>
-                    <h1>Book Store</h1>
+                <Col md={8}>
+                    <h1 className='header-block'>Book Store</h1>
                     <FilterBar tags={tags} onSortChange={handleSortChange} onFilterChange={handleFilterChange} />
                     <ItemList items={sortedItems} />
                 </Col>

@@ -41,6 +41,13 @@ const ItemStore = [
         date: "May 2024",
         price: 25,
         tags: ["Thriller", "Suspense"]
+    },
+    {
+        title: "The Photography Of The XX Century",
+        author: " Paul Duncan",
+        date: "december 2014",
+        price: 45,
+        tags: ["Art", "Photography"]
     }
 ];
 

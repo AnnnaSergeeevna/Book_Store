@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const FilterBar = ({ tags, onSortChange, onFilterChange }) => {
+const FilterBar = ({ onSortChange, onFilterChange }) => {
     const [sortOrder, setSortOrder] = useState('asc');
+    const [sortField, setSortField] = useState('price');
     const [filterTags, setFilterTags] = useState([]);
 
     const handleSort = (field) => {
-        const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+        const newSortOrder = (sortField === field && sortOrder === 'asc') ? 'desc' : 'asc';
         setSortOrder(newSortOrder);
+        setSortField(field);
         onSortChange(field, newSortOrder);
     };
 
@@ -20,22 +22,24 @@ const FilterBar = ({ tags, onSortChange, onFilterChange }) => {
         onFilterChange(newFilterTags);
     };
 
+    const tags = ["Climate change", "Sci-Fi", "History", "Technology", "Health", "Biochemistry"];
+
     return (
-        <div className="filter-bar">
+        <div className="mt-3 filter-bar">
             <ul className="nav justify-content-center">
                 <li className="nav-item">
                     <div onClick={() => handleSort('price')}>
-                        Price {sortOrder === 'asc' ? '↑' : '↓'}
+                        Price {sortField === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
                     </div>
                 </li>
                 <li className="nav-item">
                     <div onClick={() => handleSort('author')}>
-                        Author
+                        Author {sortField === 'author' && (sortOrder === 'asc' ? '↑' : '↓')}
                     </div>
                 </li>
                 <li className="nav-item">
                     <div onClick={() => handleSort('date')}>
-                        Date
+                        Date {sortField === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
                     </div>
                 </li>
                 <li className="nav-item">
@@ -43,7 +47,6 @@ const FilterBar = ({ tags, onSortChange, onFilterChange }) => {
                         <Dropdown.Toggle variant="link" id="dropdown-basic">
                             Tags
                         </Dropdown.Toggle>
-
                         <Dropdown.Menu className="tags-dropdown-menu">
                             {tags.map(tag => (
                                 <Dropdown.Item key={tag} onClick={() => handleTagChange(tag)}>
@@ -61,6 +64,7 @@ const FilterBar = ({ tags, onSortChange, onFilterChange }) => {
                 <li className="nav-item">
                     <div onClick={() => {
                         setSortOrder('asc');
+                        setSortField('price');
                         setFilterTags([]);
                         onSortChange('price', 'asc');
                         onFilterChange([]);
@@ -74,10 +78,3 @@ const FilterBar = ({ tags, onSortChange, onFilterChange }) => {
 };
 
 export default FilterBar;
-
-
-
-
-
-
-

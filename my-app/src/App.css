@@ -1,5 +1,14 @@
+:root {
+  --primary-2: #405D72;
+  --primary-1: #758694;
+  --primary-3: #40726e;
+  --primary-4: #725540;
+  --primary-5: #e9e9e9;
+}
+
 .App {
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .App-logo {
@@ -28,14 +37,30 @@
   color: #61dafb;
 }
 
-.book-item {
-  border: 1px solid #ddd;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+.header-block {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  align-content: center;
+  align-items: center;
+  background-color: var(--primary-1);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: xxx-large;
+  margin-top: 40px;
 }
 
 /* FILTER BAR */
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  align-content: center;
+  align-items: center;
+  background-color: var(--primary-1);
+  border-radius: 30px;
+  color: #ffffff;
+}
 
 .filter-bar .nav-item {
   margin: 15px;
@@ -43,6 +68,13 @@
 
 .nav-item {
   cursor: pointer;
+  font-weight: 600;
+  transition: font-size 0.3s ease;
+}
+
+.nav-item:hover div {
+  cursor: pointer;
+  color: var(--primary-5);
 }
 
 .tags-dropdown .dropdown-toggle {
@@ -51,10 +83,13 @@
   padding: 0;
   color: inherit;
   text-decoration: none;
+  color: white !important;
 }
 
 .tags-dropdown .dropdown-menu {
   min-width: 100%;
+  height: 150px;
+  overflow: scroll;
 }
 
 .tags-dropdown-menu .dropdown-item {
@@ -72,4 +107,50 @@
 
 .tags-dropdown-menu .dropdown-item:active {
   background-color: #e9ecef;
+}
+
+/* BOOKS AREA */
+.books-row {
+  margin-top: 15px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: var(--primary-1);
+  border-radius: 30px;
+  color: #ffffff;
+}
+
+.tag-button {
+  width: fit-content;
+  border: none;
+  border-radius: 15px;
+  margin-right: 15px;
+  opacity: 0.6;
+  transition: opacity 3s ease-in-out;
+}
+
+.tag-button:hover {
+  opacity: 1;
+  background-color: #405D72;
+  color: white;
+}
+
+.book-col {
+  padding: 0;
+}
+
+.book-item {
+  padding: 10px 15px;
+  margin: 15px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: var(--primary-2);
+  padding: 15px;
+  text-align: left;
+}
+
+.price-block {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--primary-1);
 }
